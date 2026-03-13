@@ -3,7 +3,7 @@
 #THEME := retro-light
 THEME      := terminal-dark
 #BACKGROUND := grain
-BACKGROUND := clouds
+BACKGROUND := wallpaper
 
 BUILD            := build
 TEMPLATE         := _template.html
@@ -17,9 +17,18 @@ ALL_HTML   := $(BUILD)/index.html $(PAGES_HTML) $(BUILD)/blog/index.html $(POSTS
 
 PANDOC := pandoc --from=markdown+raw_html --metadata-file=_stats.yaml
 
-.PHONY: all clean serve _stats.yaml
+.PHONY: all clean serve _stats.yaml wallpaper
 
-all: $(BUILD)/css/style.css $(BUILD)/fonts _stats.yaml $(ALL_HTML)
+all: $(BUILD)/css/style.css $(BUILD)/fonts $(BUILD)/backgrounds/wallpaper.webp _stats.yaml $(ALL_HTML)
+
+# ---- Wallpaper (convert source PNG → optimised WebP) ----
+QUALITY := 82
+wallpaper:
+	cwebp -q $(QUALITY) backgrounds/wallhaven-1qdk61_1280x720.png -o backgrounds/wallpaper.webp
+
+$(BUILD)/backgrounds/wallpaper.webp: backgrounds/wallpaper.webp
+	mkdir -p $(BUILD)/backgrounds
+	cp backgrounds/wallpaper.webp $@
 
 # ---- Fonts (symlink into build) ----
 $(BUILD)/fonts:
@@ -34,7 +43,7 @@ $(BUILD)/css/style.css: themes/$(THEME).css backgrounds/$(BACKGROUND).css css/_b
 
 # ---- Stats (reads previous build output) ----
 _stats.yaml:
-	@TOTAL_KB=$$(find $(BUILD) \( -name '*.html' -o -name '*.css' \) 2>/dev/null \
+	@TOTAL_KB=$$(find -L $(BUILD) -type f 2>/dev/null \
 	  | xargs cat 2>/dev/null | wc -c | tr -d ' ' | awk '{printf "%.1f", $$1/1024}') ; \
 	POST_COUNT=$$(ls blog/posts/*.md 2>/dev/null | wc -l | tr -d ' ') ; \
 	PAGE_COUNT=$(words $(ALL_HTML)) ; \
