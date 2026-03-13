@@ -1,7 +1,7 @@
 # Available themes:      retro-light | terminal-dark
 # Available backgrounds: grain | clouds | none
-#THEME := retro-light
-THEME      := terminal-dark
+THEME := retro-light
+#THEME      := terminal-dark
 #BACKGROUND := grain
 BACKGROUND := wallpaper
 
@@ -9,7 +9,7 @@ BUILD            := build
 TEMPLATE         := _template.html
 TEMPLATE_DESKTOP := _template_desktop.html
 
-PAGES_MD   := about.md projects.md resume.md
+PAGES_MD   := about.md projects.md resume.md bajo.md
 POSTS_MD   := $(wildcard blog/posts/*.md)
 PAGES_HTML := $(PAGES_MD:%.md=$(BUILD)/%.html)
 POSTS_HTML := $(POSTS_MD:blog/posts/%.md=$(BUILD)/blog/posts/%.html)
@@ -19,16 +19,21 @@ PANDOC := pandoc --from=markdown+raw_html --metadata-file=_stats.yaml
 
 .PHONY: all clean serve _stats.yaml wallpaper
 
-all: $(BUILD)/css/style.css $(BUILD)/fonts $(BUILD)/backgrounds/wallpaper.webp _stats.yaml $(ALL_HTML)
+all: $(BUILD)/css/style.css $(BUILD)/fonts $(BUILD)/backgrounds/wallpaper.webp $(BUILD)/gallery _stats.yaml $(ALL_HTML)
 
 # ---- Wallpaper (convert source PNG → optimised WebP) ----
 QUALITY := 82
 wallpaper:
-	cwebp -q $(QUALITY) backgrounds/wallhaven-1qdk61_1280x720.png -o backgrounds/wallpaper.webp
+	cwebp -q $(QUALITY) backgrounds/wallpaper.png -o backgrounds/wallpaper.webp
 
 $(BUILD)/backgrounds/wallpaper.webp: backgrounds/wallpaper.webp
 	mkdir -p $(BUILD)/backgrounds
 	cp backgrounds/wallpaper.webp $@
+
+# ---- Gallery (symlink into build) ----
+$(BUILD)/gallery:
+	mkdir -p $(BUILD)
+	ln -sf $(CURDIR)/gallery $(BUILD)/gallery
 
 # ---- Fonts (symlink into build) ----
 $(BUILD)/fonts:
