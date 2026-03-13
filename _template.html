@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  $if(description)$<meta name="description" content="$description$">$endif$
+  <title>$if(title)$$title$ — $endif$xpie.ch</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="menubar">
+    <span class="menu-logo">&#9670;</span>
+    <a href="/index.html"    class="menu-appname" style="text-decoration:none;color:inherit">xpie.ch</a>
+    <a href="/about.html"    class="menu-item">about</a>
+    <a href="/projects.html" class="menu-item">projects</a>
+    <a href="/resume.html"   class="menu-item">resume</a>
+    <a href="/blog/index.html" class="menu-item">blog</a>
+    <span class="menu-spacer"></span>
+    <span class="menu-right">
+      $if(total-kb)$&#9632;&thinsp;$total-kb$ &nbsp;&middot;&nbsp; $endif$$if(page-count)$$page-count$&thinsp;pages &nbsp;&middot;&nbsp; $endif$$if(post-count)$$post-count$&thinsp;posts &nbsp;&middot;&nbsp; $endif$
+      <span class="battery">
+        <span class="battery-bar"><span class="battery-fill"></span></span>
+        <span class="battery-tip"></span>
+      </span>
+    </span>
+  </header>
+
+  <div class="desktop desktop-bg">
+    <div class="desktop-icons">
+      <a href="/about.html" class="icon">
+        <span class="icon-emoji">📄</span>
+        <span class="icon-label">about.txt</span>
+      </a>
+      <a href="/projects.html" class="icon">
+        <span class="icon-emoji">📁</span>
+        <span class="icon-label">projects</span>
+      </a>
+      <a href="/resume.html" class="icon">
+        <span class="icon-emoji">📋</span>
+        <span class="icon-label">resume.pdf</span>
+      </a>
+      <a href="/blog/index.html" class="icon">
+        <span class="icon-emoji">📂</span>
+        <span class="icon-label">blog</span>
+      </a>
+      <a href="https://linkedin.com" class="icon" target="_blank" rel="noopener">
+        <span class="icon-emoji">🗑️</span>
+        <span class="icon-label">trash</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="window-view">
+    <div id="zen" class="window">
+      <div class="titlebar">
+        <div class="traffic-lights">
+          <a href="/index.html" class="tl close"></a>
+          <a href="$parent$"   class="tl minimize"></a>
+          <a href="#zen" class="tl maximize zen-enter"></a>
+          <a href="#"    class="tl maximize zen-exit"></a>
+        </div>
+        <span class="titlebar-title">$if(title)$$title$$else$xpie.ch$endif$</span>
+      </div>
+      <div class="window-content">
+        $if(title)$<h1>$title$</h1>$endif$
+        $if(date)$<p style="color: var(--muted)">$date$</p><hr>$endif$
+        $body$
+      </div>
+    </div>
+  </div>
+</body>
+</html>

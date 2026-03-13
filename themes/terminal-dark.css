@@ -1,0 +1,41 @@
+:root {
+  --font:           'Comic Mono', 'Courier New', monospace;
+  --grain-opacity:  0.12;
+
+  /* desktop */
+  --desktop-bg:     #0d0d0d;
+  --desktop-fg:     #b0c8a0;
+
+  /* menubar */
+  --mb-bg:          rgba(8, 12, 8, 0.95);
+  --mb-border:      rgba(60, 180, 60, 0.2);
+  --mb-fg:          #48b840;
+
+  /* window */
+  --win-border:     #2a4a2a;
+  --win-content:    #0d0d0d;
+
+  /* title bar */
+  --tb-from:        #162816;
+  --tb-to:          #0c1a0c;
+  --tb-fg:          #48b840;
+
+  /* traffic lights */
+  --tl-close:       #e05030;
+  --tl-min:         #d4a020;
+  --tl-max:         #28c840;
+
+  /* content */
+  --fg:             #b0c8a0;
+  --accent:         #48b840;
+  --muted:          #3a6030;
+  --link:           #78c860;
+  --link-hover:     #c0ff80;
+
+  /* code / misc */
+  --code-bg:        #111811;
+  --hr-color:       #1e3a1e;
+
+  /* background */
+  --cloud-opacity:  0.07;
+}
