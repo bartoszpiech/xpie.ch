@@ -1,11 +1,29 @@
 @font-face {
   font-family: 'Comic Mono';
-  src: url('/fonts/ComicMono.ttf') format('truetype');
+  src: url('/fonts/ComicMono.woff2') format('woff2'),
+       url('/fonts/ComicMono.ttf') format('truetype');
   font-weight: 400;
 }
 
+* { cursor: url('/cursor.png'), auto; }
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--win-content);
+  color: var(--fg);
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-family: var(--font);
+  z-index: 9999;
+  text-decoration: none;
+}
+.skip-link:focus { top: 26px; }
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; }
+audio { accent-color: var(--accent); width: 100%; }
 
 /* ============================================================
    WALLPAPER + GRAIN
@@ -16,6 +34,7 @@ body {
   background-color: var(--desktop-bg);
   min-height: 100vh;
   padding-top: 26px;
+  text-transform: lowercase;
 }
 
 /* background decoration injected by backgrounds/*.css */
@@ -66,6 +85,11 @@ body {
 
 .menu-spacer { flex: 1; }
 
+@media (max-width: 600px) {
+  .menu-item  { display: none; }
+  .menu-right span:not(.battery) { display: none; }
+}
+
 .menu-right {
   padding: 0 12px;
   color: var(--mb-fg);
@@ -73,6 +97,32 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+/* ---- No-JS badge ---- */
+
+.no-js-badge { position: relative; display: inline-flex; align-items: center; }
+.no-js-badge summary {
+  list-style: none;
+  cursor: pointer;
+  color: var(--mb-fg);
+  text-decoration: none;
+}
+.no-js-badge summary::-webkit-details-marker { display: none; }
+.no-js-badge summary s { color: var(--muted); font-size: 0.68rem; }
+.no-js-popup {
+  position: absolute;
+  top: 26px;
+  right: 0;
+  background: var(--mb-bg);
+  border: 1px solid var(--mb-border);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.7rem;
+  color: var(--mb-fg);
+  white-space: nowrap;
+  z-index: 1001;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* ---- Battery ---- */
@@ -96,6 +146,42 @@ body {
   pointer-events: none;
 }
 .desktop-bg .icon { pointer-events: all; }
+
+.motd {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.badges {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  z-index: 3;
+  pointer-events: all;
+}
+
+.badges img { image-rendering: pixelated; display: block; }
+
+@media (max-width: 600px) { .badges { display: none; } }
+
+.cowsay {
+  font-family: var(--font);
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--fg);
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 600px) { .motd { display: none; } }
 
 .desktop-icons {
   display: flex;
@@ -185,9 +271,7 @@ body {
    TYPOGRAPHY
    ============================================================ */
 
-.window-content h1,
-.window-content h2,
-.window-content h3 { color: var(--accent); line-height: 1.2; margin-bottom: 0.75rem; font-family: var(--font); }
+.window-content :is(h1,h2,h3) { color: var(--accent); line-height: 1.2; margin-bottom: 0.75rem; font-family: var(--font); }
 
 .window-content h1         { font-size: 1.3rem; margin-bottom: 1.25rem; }
 .window-content h1::before { content: '> '; color: var(--muted); }
@@ -201,9 +285,16 @@ body {
 .window-content code       { background: var(--code-bg); padding: 0.1em 0.4em; font-size: 0.88em; font-family: var(--font); }
 .window-content pre        { background: var(--code-bg); padding: 1rem; overflow-x: auto; margin-bottom: 1rem; border-left: 3px solid var(--muted); }
 .window-content pre code   { background: none; padding: 0; }
-.window-content ul,
-.window-content ol         { padding-left: 1.5rem; margin-bottom: 1rem; }
+.window-content :is(ul,ol) { padding-left: 1.5rem; margin-bottom: 1rem; }
 .window-content li         { margin-bottom: 0.25rem; }
+
+.post-meta                 { color: var(--muted); font-size: 0.82rem; margin-bottom: 0.5rem; }
+
+.toc                       { border-left: 3px solid var(--muted); padding-left: 1rem; margin-bottom: 2rem; font-size: 0.85rem; }
+.toc ul                    { list-style: none; padding: 0; margin: 0; }
+.toc li                    { margin-bottom: 0.25rem; }
+.toc a                     { color: var(--muted); text-decoration: none; }
+.toc a:hover               { color: var(--link); }
 
 .post-list                 { list-style: none; padding: 0; }
 .post-list li              { display: flex; gap: 1.5rem; margin-bottom: 0.5rem; flex-wrap: wrap; }

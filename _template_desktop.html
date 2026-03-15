@@ -5,57 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   $if(description)$<meta name="description" content="$description$">$endif$
   <title>xpie.ch</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤠</text></svg>">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">skip to content</a>
   <header class="menubar">
-    <span class="menu-logo">&#9670;</span>
+    <span class="menu-logo" aria-hidden="true">🍎</span>
     <span class="menu-appname">xpie.ch</span>
     <a href="/about.html"      class="menu-item">about</a>
     <a href="/projects.html"   class="menu-item">projects</a>
     <a href="/resume.html"     class="menu-item">resume</a>
     <a href="/blog/index.html" class="menu-item">blog</a>
+    <a href="/feed.xml"        class="menu-item" aria-label="rss feed">rss</a>
     <span class="menu-spacer"></span>
     <span class="menu-right">
-      $if(total-kb)$&#9632;&thinsp;$total-kb$ &nbsp;&middot;&nbsp; $endif$$if(page-count)$$page-count$&thinsp;pages &nbsp;&middot;&nbsp; $endif$$if(post-count)$$post-count$&thinsp;posts &nbsp;&middot;&nbsp; $endif$
-      <span class="battery">
+      <details class="no-js-badge"><summary><s>javascript</s></summary><div class="no-js-popup">this website does not use javascript</div></details> &nbsp;&middot;&nbsp;$if(page-count)$$page-count$&thinsp;pages &nbsp;&middot;&nbsp; $endif$$if(post-count)$$post-count$&thinsp;posts &nbsp;&middot;&nbsp; $endif$$if(weather)$<details class="no-js-badge"><summary>$weather$</summary><div class="no-js-popup">weather for warsaw, poland — updated daily via ci/cd pipeline</div></details> &nbsp;&middot;&nbsp; $endif$$if(gh-stars)$★&thinsp;$gh-stars$ &nbsp;&middot;&nbsp; $endif$$if(uptime)$$uptime$ &nbsp;&middot;&nbsp; $endif$$if(build-date)$$build-date$ &nbsp;&middot;&nbsp; $endif$
+      <span class="battery" aria-hidden="true">
         <span class="battery-bar"><span class="battery-fill"></span></span>
         <span class="battery-tip"></span>
       </span>
     </span>
   </header>
 
+  <main id="main-content">
   <div class="desktop">
     <div class="desktop-icons">
-      <a href="https://linkedin.com" class="icon" target="_blank" rel="noopener">
-        <span class="icon-emoji">🗑️</span>
-        <span class="icon-label">trash</span>
+      <a href="https://linkedin.com" class="icon" target="_blank" rel="noopener" aria-label="linkedin (opens in new tab)">
+        <span class="icon-emoji" aria-hidden="true">🗑️</span>
+        <span class="icon-label" aria-hidden="true">/dev/null</span>
+      </a>
+      <a href="/usrbin.html" class="icon">
+        <span class="icon-emoji" aria-hidden="true">💾</span>
+        <span class="icon-label">/usr/bin</span>
       </a>
       <a href="/about.html" class="icon">
-        <span class="icon-emoji">📄</span>
+        <span class="icon-emoji" aria-hidden="true">📄</span>
         <span class="icon-label">about.txt</span>
       </a>
       <a href="/projects.html" class="icon">
-        <span class="icon-emoji">📁</span>
+        <span class="icon-emoji" aria-hidden="true">📁</span>
         <span class="icon-label">projects</span>
       </a>
       <a href="/resume.html" class="icon">
-        <span class="icon-emoji">📋</span>
+        <span class="icon-emoji" aria-hidden="true">📋</span>
         <span class="icon-label">resume.pdf</span>
       </a>
       <a href="/blog/index.html" class="icon">
-        <span class="icon-emoji">📂</span>
+        <span class="icon-emoji" aria-hidden="true">📂</span>
         <span class="icon-label">blog</span>
       </a>
       <a href="/bajo.html" class="icon">
-        <span class="icon-emoji">🤠</span>
+        <span class="icon-emoji" aria-hidden="true">🤠</span>
         <span class="icon-label">bajo.bmp</span>
       </a>
-      <a href="https://dtinth.github.io/comic-mono-font/" class="icon" target="_blank" rel="noopener">
-        <span class="icon-emoji">📜</span>
-        <span class="icon-label">comicmono.ttf</span>
+      <a href="/song.html" class="icon">
+        <span class="icon-emoji" aria-hidden="true">🎺</span>
+        <span class="icon-label">moon.mp3</span>
+      </a>
+      <a href="https://dtinth.github.io/comic-mono-font/" class="icon" target="_blank" rel="noopener" aria-label="comicmono.ttf (opens in new tab)">
+        <span class="icon-emoji" aria-hidden="true">📜</span>
+        <span class="icon-label" aria-hidden="true">comicmono.ttf</span>
       </a>
     </div>
   </div>
+  </main>
+$for(include-after)$$include-after$$endfor$
 </body>
 </html>

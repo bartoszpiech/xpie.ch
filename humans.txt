@@ -1,0 +1,8 @@
+/* TEAM */
+developer: xpie
+site: https://xpie.ch
+
+/* SITE */
+built with: pandoc + gnu make
+font: comic mono (dtinth.github.io/comic-mono-font)
+language: english
