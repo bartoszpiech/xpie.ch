@@ -1,10 +1,10 @@
 ---
-title: about
+title: about.txt
 ---
 
-hiho! i'm bartosz (bartek / bajo / barti / bart for short).
+hiho! i'm *b*artosz (*b*artek / *b*ajo / *b*arti / *b*art for short).
 
-beng in robotics & automation and msc in computer science (systems engineering) from wrocław university of technology. i enjoy robotics, microcontrollers, embedded systems, and anything low-level. reverse engineering is a particular passion.
+beng in robotics & automation and msc in computer science (systems engineering) from wroclaw university of technology. i enjoy robotics, microcontrollers, embedded systems, and anything low-level. reverse engineering is a particular passion.
 
 outside of that i run a homelab, play squash, and occasionally counter strike. i also fancy cooking — mostly italian (🤌🏼) stuff.
 
@@ -19,5 +19,5 @@ outside of that i run a homelab, play squash, and occasionally counter strike. i
 
 ## contact
 
-- email: [<firstletterofmyname>@xpie.ch](mailto:b@xpie.ch)
+- email: [<firstletterofmyname>@xpie.ch](mailto:@xpie.ch)
 - github: [bartoszpiech](https://github.com/bartoszpiech)

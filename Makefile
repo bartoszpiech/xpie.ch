@@ -59,8 +59,6 @@ $(BUILD)/css/style.css: themes/$(THEME).css backgrounds/$(BACKGROUND).css css/_b
 
 # ---- Stats (reads previous build output) ----
 _stats.yaml:
-	POST_COUNT=$$(ls blog/posts/*.md 2>/dev/null | wc -l | tr -d ' ') ; \
-	PAGE_COUNT=$(words $(ALL_HTML)) ; \
 	BUILD_DATE=$$(date '+%Y-%m-%d') ; \
 	LAUNCH_TS=$$(date -d "$(SITE_LAUNCH)" +%s 2>/dev/null || date -j -f "%Y-%m-%d" "$(SITE_LAUNCH)" +%s) ; \
 	NOW_TS=$$(date +%s) ; \
@@ -73,8 +71,8 @@ _stats.yaml:
 	  GH_STARS=$$(curl -sf "https://api.github.com/repos/$(GITHUB_REPO)" \
 	    | grep -o '"stargazers_count": *[0-9]*' | grep -o '[0-9]*' || echo "") ; \
 	fi ; \
-	printf 'page-count: "%s"\npost-count: "%s"\nbuild-date: "%s"\nuptime: "up %sd"\nweather: "%s"\ngh-stars: "%s"\n' \
-	  "$$PAGE_COUNT" "$$POST_COUNT" "$$BUILD_DATE" "$$UPTIME" "$$WEATHER" "$$GH_STARS" > _stats.yaml
+	printf 'build-date: "%s"\nuptime: "up %sd"\nweather: "%s"\ngh-stars: "%s"\n' \
+	  "$$BUILD_DATE" "$$UPTIME" "$$WEATHER" "$$GH_STARS" > _stats.yaml
 
 # ---- Pages ----
 $(BUILD)/index.html: index.md _stats.yaml $(TEMPLATE_DESKTOP) $(BUILD)/css/style.css

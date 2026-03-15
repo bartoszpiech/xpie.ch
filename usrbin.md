@@ -5,30 +5,26 @@ description: tools, hardware, and software i use
 
 ## hardware
 
-- **machine** —
-- **monitor** —
-- **keyboard** —
-- **mouse** —
+- **machine** — macbook air m4 (daily driver), librebooted thinkpad x200 on ocasions
+- **keyboard** — split (crkbd, lilyin the past, now rocking 
+- **mouse** — small one
 
 ## editor
 
-- **editor** —
-- **theme** —
-- **font** — Comic Mono
+- **editor** — vi / vim / nvim (no difference with my barebones config)
+- **theme** — not important
+- **font** — [comic code](https://tosche.net/fonts/comic-code)
 
 ## terminal
 
-- **shell** —
-- **emulator** —
-- **prompt** —
+- **shell** — zsh
+- **emulator** — alacritty
 
 ## software
 
-- **browser** —
-- **notes** —
-- **music** —
+- **browser** — zenbrowser
+- **music** — 🏴‍☠️
 
 ## this site
 
-built with [Pandoc](https://pandoc.org) + GNU Make, hosted on —, no JavaScript.
-source at —.
+built with [pandoc](https://pandoc.org) + gnu make, hosted on [gh](https://github.com/bartoszpiech/xpie.ch), no javascript.
