@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'Comic Mono';
-  src: url('/fonts/ComicMono.woff2') format('woff2'),
-       url('/fonts/ComicMono.ttf') format('truetype');
+  src: url('/fonts/ComicMono.woff2') format('woff2');
   font-weight: 400;
 }
 
