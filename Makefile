@@ -42,15 +42,14 @@ $(BUILD)/backgrounds/wallpaper.webp: backgrounds/wallpaper.webp
 	mkdir -p $(BUILD)/backgrounds
 	cp backgrounds/wallpaper.webp $@
 
-# ---- Gallery (symlink into build) ----
+# ---- Gallery (copy into build) ----
 $(BUILD)/gallery:
-	mkdir -p $(BUILD)
-	ln -sf $(CURDIR)/gallery $(BUILD)/gallery
+	cp -r gallery $(BUILD)/gallery
 
-# ---- Fonts (symlink into build) ----
+# ---- Fonts (copy into build) ----
 $(BUILD)/fonts:
-	mkdir -p $(BUILD)
-	ln -sf $(CURDIR)/fonts $(BUILD)/fonts
+	mkdir -p $(BUILD)/fonts
+	cp fonts/ComicMono.woff2 $(BUILD)/fonts/
 
 # ---- Theme + CSS build ----
 $(BUILD)/css/style.css: themes/$(THEME).css backgrounds/$(BACKGROUND).css css/_base.css
@@ -127,10 +126,9 @@ $(BUILD)/humans.txt: humans.txt
 $(BUILD)/CNAME: CNAME
 	cp CNAME $(BUILD)/CNAME
 
-# ---- Badges (symlink into build) ----
+# ---- Badges (copy into build) ----
 $(BUILD)/badges:
-	mkdir -p $(BUILD)
-	ln -sf $(CURDIR)/badges $(BUILD)/badges
+	cp -r badges $(BUILD)/badges
 
 # ---- Font subsetting ----
 subset-font:
