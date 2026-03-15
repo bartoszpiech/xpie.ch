@@ -72,7 +72,7 @@ _stats.yaml:
 	GH_STARS="" ; \
 	if [ -n "$(GITHUB_REPO)" ]; then \
 	  GH_STARS=$$(curl -sf "https://api.github.com/repos/$(GITHUB_REPO)" \
-	    | grep -o '"stargazers_count":[0-9]*' | grep -o '[0-9]*' || echo "") ; \
+	    | grep -o '"stargazers_count": *[0-9]*' | grep -o '[0-9]*' || echo "") ; \
 	fi ; \
 	printf 'page-count: "%s"\npost-count: "%s"\nbuild-date: "%s"\nuptime: "up %sd"\nweather: "%s"\ngh-stars: "%s"\n' \
 	  "$$PAGE_COUNT" "$$POST_COUNT" "$$BUILD_DATE" "$$UPTIME" "$$WEATHER" "$$GH_STARS" > _stats.yaml

@@ -104,7 +104,6 @@ body {
 .no-js-badge { position: relative; display: inline-flex; align-items: center; }
 .no-js-badge summary {
   list-style: none;
-  cursor: pointer;
   color: var(--mb-fg);
   text-decoration: none;
 }

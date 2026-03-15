@@ -31,8 +31,11 @@ jobs:
           go install github.com/tdewolff/minify/v2/cmd/minify@latest
           echo "$HOME/go/bin" >> $GITHUB_PATH
 
+      - name: install fonttools
+        run: pip install fonttools brotli
+
       - name: build
-        run: make
+        run: make && make subset-font
 
       - name: upload pages artifact
         uses: actions/upload-pages-artifact@v3
