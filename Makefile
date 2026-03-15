@@ -25,7 +25,7 @@ PANDOC := pandoc --from=markdown+raw_html --metadata-file=_stats.yaml \
 
 .PHONY: all clean serve _stats.yaml wallpaper subset-font
 
-all: $(BUILD)/css/style.css $(BUILD)/fonts $(BUILD)/backgrounds/wallpaper.webp $(BUILD)/gallery $(BUILD)/badges $(BUILD)/song.opus $(BUILD)/cursor.png _stats.yaml $(ALL_HTML) $(BUILD)/feed.xml $(BUILD)/sitemap.xml $(BUILD)/robots.txt $(BUILD)/humans.txt $(BUILD)/CNAME
+all: $(BUILD)/css/style.css $(BUILD)/fonts $(BUILD)/backgrounds/wallpaper.webp $(BUILD)/gallery $(BUILD)/badges $(BUILD)/song.opus $(BUILD)/cursor.png $(BUILD)/resume.pdf _stats.yaml $(ALL_HTML) $(BUILD)/feed.xml $(BUILD)/sitemap.xml $(BUILD)/robots.txt $(BUILD)/humans.txt $(BUILD)/CNAME
 
 $(BUILD)/song.opus: song.opus
 	cp song.opus $(BUILD)/song.opus
@@ -113,6 +113,10 @@ $(BUILD)/sitemap.xml: $(ALL_HTML)
 	  printf '<url><loc>$(SITE_URL)%s</loc></url>\n' "$$url" >> $@; \
 	done
 	@printf '</urlset>\n' >> $@
+
+# ---- Resume PDF ----
+$(BUILD)/resume.pdf: resume_piech.pdf
+	cp resume_piech.pdf $(BUILD)/resume.pdf
 
 # ---- Static files ----
 $(BUILD)/robots.txt: robots.txt
