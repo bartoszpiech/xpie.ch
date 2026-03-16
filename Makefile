@@ -13,7 +13,7 @@ GITHUB_REPO      := bartoszpiech/xpie.ch
 TEMPLATE         := _template.html
 TEMPLATE_DESKTOP := _template_desktop.html
 
-PAGES_MD   := about.md projects.md resume.md bajo.md song.md usrbin.md 404.md
+PAGES_MD   := about.md projects.md resume.md bajo.md song.md usrbin.md etcinitd.md 404.md
 POSTS_MD   := $(wildcard blog/posts/*.md)
 PAGES_HTML := $(PAGES_MD:%.md=$(BUILD)/%.html)
 POSTS_HTML := $(POSTS_MD:blog/posts/%.md=$(BUILD)/blog/posts/%.html)

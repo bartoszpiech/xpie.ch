@@ -4,7 +4,7 @@ title: resume.pdf
 
 ⚠️⚠️ **under construction** ⚠️⚠️— this page hasn't been updated in a while.
 
-[download](/resume.pdf) — **old version**
+<a href="/resume.pdf" download="resume_piech.pdf">download</a> — **old version**
 
 ## experience ⚠️⚠️ *update needed* ⚠️⚠️
 
@@ -18,12 +18,12 @@ title: resume.pdf
 ## education ⚠️⚠️ *update needed* ⚠️⚠️
 
 ### msc — computer engineering (data processing systems engineering)
-#### faculty of information and communication technology, wrocław university of science and technology
+#### faculty of information and communication technology, wroclaw university of science and technology
 
 <p style="color: var(--muted)">2022 – present</p>
 
 ### beng — control engineering and robotics (robotics)
-#### faculty of electronics, wrocław university of science and technology
+#### faculty of electronics, wroclaw university of science and technology
 
 <p style="color: var(--muted)">2018 – 2022</p>
 
