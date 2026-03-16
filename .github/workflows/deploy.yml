@@ -34,8 +34,16 @@ jobs:
       - name: install fonttools
         run: pip install fonttools brotli
 
+      - name: ping server
+        run: |
+          eval $(ssh-agent -s)
+          echo "${{ secrets.SERVER_SSH_KEY }}" | ssh-add -
+          EXPIRY=$(ssh -o StrictHostKeyChecking=no -p 11335 frog@frog02.mikr.us \
+            "grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}' /data_waznosci.txt")
+          echo "SERVER_EXPIRY=$EXPIRY" >> $GITHUB_ENV
+
       - name: build
-        run: make SKIP_WEATHER=1 && make subset-font && make
+        run: make SKIP_WEATHER=1 SERVER_EXPIRY=${{ env.SERVER_EXPIRY }} && make subset-font && make SERVER_EXPIRY=${{ env.SERVER_EXPIRY }}
 
       - name: upload pages artifact
         uses: actions/upload-pages-artifact@v3

@@ -20,4 +20,4 @@ outside of that i run a homelab, play squash, and occasionally counter strike. i
 ## contact
 
 - email: <a href="mailto:[firstletterofmyname]&#64;xpie&#46;ch">[firstletterofmyname]&#64;xpie&#46;ch</a>
-- github: [bartoszpiech](https://github.com/bartoszpiech)
+- github: [bartoszpiech](https://github.com/bartoszpiech) (i rarely use it, only for free clock cycles / space)
