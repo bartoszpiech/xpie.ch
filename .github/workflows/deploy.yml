@@ -35,7 +35,7 @@ jobs:
         run: pip install fonttools brotli
 
       - name: build
-        run: make && make subset-font && make
+        run: make && make subset-font && sleep 10 && make
 
       - name: upload pages artifact
         uses: actions/upload-pages-artifact@v3

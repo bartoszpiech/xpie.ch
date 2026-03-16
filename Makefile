@@ -64,6 +64,7 @@ _stats.yaml:
 	NOW_TS=$$(date +%s) ; \
 	UPTIME=$$(( ($$NOW_TS - $$LAUNCH_TS) / 86400 )) ; \
 	WEATHER=$$(curl -sf "https://wttr.in/$(WEATHER_CITY)?format=%c%20%t%20%w&m" 2>/dev/null \
+	  | grep -v "processing" \
 	  | sed 's/↑/⬆️/g;s/↗/↗️/g;s/→/➡️/g;s/↘/↘️/g;s/↓/⬇️/g;s/↙/↙️/g;s/←/⬅️/g;s/↖/↖️/g' \
 	  || echo "") ; \
 	GH_STARS="" ; \
