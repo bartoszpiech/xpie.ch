@@ -19,5 +19,5 @@ outside of that i run a homelab, play squash, and occasionally counter strike. i
 
 ## contact
 
-- email: [(firstletterofmyname)@xpie.ch](mailto:@xpie.ch)
+- email: <a href="mailto:[firstletterofmyname]&#64;xpie&#46;ch">[firstletterofmyname]&#64;xpie&#46;ch</a>
 - github: [bartoszpiech](https://github.com/bartoszpiech)

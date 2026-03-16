@@ -315,6 +315,16 @@ body {
   flex-direction: column;
 }
 
+#zen:target {
+  overflow: visible;
+}
+
+#zen:target .titlebar {
+  position: sticky;
+  top: 26px;
+  z-index: 5;
+}
+
 #zen:target .window-content {
   flex: 1;
 }
@@ -322,6 +332,7 @@ body {
 .window-view:has(#zen:target) {
   padding: 0;
   align-items: stretch;
+  z-index: 4;
 }
 
 /* toggle: show enter in normal mode, exit in zen mode */

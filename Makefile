@@ -98,9 +98,10 @@ $(BUILD)/feed.xml: $(POSTS_MD)
 	@for f in $(POSTS_MD); do \
 	  title=$$(grep '^title:' $$f | head -1 | sed 's/^title: *//;s/"//g'); \
 	  date=$$(grep '^date:' $$f | head -1 | sed 's/^date: *//;s/"//g'); \
+	  pubdate=$$(date -d "$$date" "+%a, %d %b %Y 00:00:00 +0000" 2>/dev/null || date -j -f "%Y-%m-%d" "$$date" "+%a, %d %b %Y 00:00:00 +0000"); \
 	  slug=$$(basename $$f .md); \
 	  printf '<item><title>%s</title><link>https://xpie.ch/blog/posts/%s.html</link><pubDate>%s</pubDate></item>\n' \
-	    "$$title" "$$slug" "$$date" >> $@; \
+	    "$$title" "$$slug" "$$pubdate" >> $@; \
 	done
 	@printf '</channel></rss>\n' >> $@
 

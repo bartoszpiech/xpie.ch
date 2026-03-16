@@ -4,13 +4,11 @@ date: 2026-03-13
 show-toc: true
 ---
 
-First post. This is written in Markdown and compiled to HTML by `pandoc`.
-
-Run `make` to build all posts.
+first post. this is written in markdown and compiled to html by `pandoc`.
 
 ## a heading
 
-Some text with **bold** and _italic_ and `inline code`.
+some text with **bold** and _italic_ and `inline code`.
 
 ## code example
 
@@ -28,8 +26,8 @@ make clean && make
 
 ## footnote example
 
-Here is a sentence with a footnote.[^1]
+here is a sentence with a footnote.[^1]
 
-[^1]: This is the footnote text.
+[^1]: this is the footnote text.
 
-That's it.
+that's it. goodbye.

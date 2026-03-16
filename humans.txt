@@ -1,5 +1,5 @@
 /* TEAM */
-developer: xpie
+developer: bartosz piech
 site: https://xpie.ch
 
 /* SITE */
