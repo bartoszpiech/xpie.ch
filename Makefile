@@ -63,10 +63,14 @@ _stats.yaml:
 	LAUNCH_TS=$$(date -d "$(SITE_LAUNCH)" +%s 2>/dev/null || date -j -f "%Y-%m-%d" "$(SITE_LAUNCH)" +%s) ; \
 	NOW_TS=$$(date +%s) ; \
 	UPTIME=$$(( ($$NOW_TS - $$LAUNCH_TS) / 86400 )) ; \
-	WEATHER=$$(curl -sf "https://wttr.in/$(WEATHER_CITY)?format=%c%20%t%20%w&m" 2>/dev/null \
-	  | grep -v "processing" \
-	  | sed 's/↑/⬆️/g;s/↗/↗️/g;s/→/➡️/g;s/↘/↘️/g;s/↓/⬇️/g;s/↙/↙️/g;s/←/⬅️/g;s/↖/↖️/g' \
-	  || echo "") ; \
+	if [ "$(SKIP_WEATHER)" = "1" ]; then \
+	  WEATHER="" ; \
+	else \
+	  WEATHER=$$(curl -sf "https://wttr.in/$(WEATHER_CITY)?format=%c%20%t%20%w&m" 2>/dev/null \
+	    | grep -v "processing" \
+	    | sed 's/↑/⬆️/g;s/↗/↗️/g;s/→/➡️/g;s/↘/↘️/g;s/↓/⬇️/g;s/↙/↙️/g;s/←/⬅️/g;s/↖/↖️/g' \
+	    || echo "") ; \
+	fi ; \
 	GH_STARS="" ; \
 	if [ -n "$(GITHUB_REPO)" ]; then \
 	  GH_STARS=$$(curl -sf "https://api.github.com/repos/$(GITHUB_REPO)" \
