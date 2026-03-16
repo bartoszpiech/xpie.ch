@@ -76,8 +76,8 @@ _stats.yaml:
 	  GH_STARS=$$(curl -sf "https://api.github.com/repos/$(GITHUB_REPO)" \
 	    | grep -o '"stargazers_count": *[0-9]*' | grep -o '[0-9]*' || echo "") ; \
 	fi ; \
-	printf 'build-date: "%s"\nuptime: "up %sd"\nweather: "%s"\ngh-stars: "%s"\nserver-expiry: "%s"\n' \
-	  "$$BUILD_DATE" "$$UPTIME" "$$WEATHER" "$$GH_STARS" "$(SERVER_EXPIRY)" > _stats.yaml
+	printf 'build-date: "%s"\nuptime: "up %sd"\nweather: "%s"\ngh-stars: "%s"\n' \
+	  "$$BUILD_DATE" "$$UPTIME" "$$WEATHER" "$$GH_STARS" > _stats.yaml
 
 # ---- Pages ----
 $(BUILD)/index.html: index.md _stats.yaml $(TEMPLATE_DESKTOP) $(BUILD)/css/style.css
