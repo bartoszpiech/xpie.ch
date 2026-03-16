@@ -34,11 +34,17 @@ title: projects
 <div class="project">
   <h3>shopper — product price & availability tracker</h3>
   <p>full stack web application that monitored product availability and prices across online stores, notifying users via email when items changed status. built with svelte on the frontend, golang and python on the backend, and mysql for storage.</p>
-  <p class="tags">svelte · golang · python · mysql · ~2022</p>
+  <p class="tags">golang · python · mysql · svelte · ~2022</p>
 </div>
 
 <div class="project">
-  <h3>milo — 4dof robotic arm</h3>
+  <h3>minisumo — autonomous sumo robot <a href="/minisumo.pdf">[report]</a></h3>
+  <p>designed and built an autonomous minisumo combat robot within the 10×10cm, 500g class constraints. selected and integrated an **stm32f103 bluepill**, dual n20 micro gearmotors driven by tb6612fng h-bridges, four ktir0711s line sensors for ring edge detection, and two pololu 2578 ir distance sensors for opponent tracking. programmed autonomous strategy in c using the hal library.</p>
+  <p class="tags">c · stm32 · hal library · kicad · ~2022</p>
+</div>
+
+<div class="project">
+  <h3>milo — 4dof robotic arm <a href="/milo.pdf">[report]</a></h3>
   <p>constructed and programmed a 4dof robotic arm that solved inverse kinematics. designed the electronics in kicad and the mechanics in fusion 360, programmed the stm32 microcontroller in c using the hal library, and built a qt5 visualisation application in c++.</p>
   <p class="tags">c · c++ · stm32 · qt5 · kicad · fusion 360 · ~2022</p>
 </div>
@@ -46,5 +52,5 @@ title: projects
 <div class="project">
   <h3>ariadna minesweeper — konar team project</h3>
   <p>team project within the konar robotics student interest group. built the project website in html, css, and javascript, and programmed low-level peripherals for the sensorboard module in c for the stm32 microcontroller using the hal library.</p>
-  <p class="tags">c · stm32 · html · css · javascript · ~2020</p>
+  <p class="tags">c · stm32 · hal · html · css · javascript · ~2020</p>
 </div>
