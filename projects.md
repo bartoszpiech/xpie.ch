@@ -3,6 +3,12 @@ title: projects
 ---
 
 <div class="project">
+  <h3><a href="https://grafena.pl">grafena. — shift scheduling saas for polish businesses</a></h3>
+  <p>web app for building monthly shift schedules that comply with the polish labour code. managers paint the month from rotation patterns (incl. 12h systems), and the app checks daily and weekly rest, working-time norms and public holidays as they go. schedules are shared with staff via a read-only link or exported to excel. used in production by a care home with 86 staff; stripe subscriptions, free plan up to 5 employees.</p>
+  <p class="tags">typescript · astro · react · express · prisma · sqlite · stripe · docker · 03/2026</p>
+</div>
+
+<div class="project">
   <h3><a href="https://github.com/yourhandle/project-one">reverse engineering of a certain cad program</a></h3>
   <p>reverse engineered a woodworking cad program that is still actively maintained to this day. analysed the binary with ghidra and x64dbg, patched the license checks and injected a custom dll to bypass protection — works across versions.</p>
   <p class="tags">x64dbg · ghidra · dll injection · win32 · 03/2026</p>
